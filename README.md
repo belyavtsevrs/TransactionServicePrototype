@@ -24,4 +24,6 @@ Testing tools: JUnit, Mockito
 Tables:
 Transaction: Contains transaction information (accounts, amount, currency, category, date and time, limit exceeded flag).
 Limit: Stores information about spending limits (category, amount, currency, setting date).
-ExchangeRate: Stores information about exchange rates for conversion (date, KZT/USD rate, RUB/USD rate).
+ExchangeRate: Stores information about exchange rates for conversion (date, KZT/USD rate, RUB/USD rate). 
+
+
