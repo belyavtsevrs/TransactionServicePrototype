@@ -12,13 +12,13 @@ The main purpose of the microservice is to support control over the bank's clien
 
 # Technologies and tools
 
-Programming language: Java
-Framework: Spring Boot
-Database: PostgreSQL/MySQL
-ORM: Hibernate/JPA
-API for getting exchange rates: Twelve Data
-Database migrations: Liquibase/Flyway
-Testing tools: JUnit, Mockito
+1. Programming language: Java
+2. Framework: Spring Boot
+3. Database: PostgreSQL/MySQL
+4. ORM: Hibernate/JPA
+5. API for getting exchange rates: Twelve Data
+6. Database migrations: Liquibase/Flyway
+7. Testing tools: JUnit, Mockito
 
 # Database structure
 Tables:
