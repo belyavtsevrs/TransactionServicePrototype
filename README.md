@@ -26,4 +26,102 @@ Transaction: Contains transaction information (accounts, amount, currency, categ
 Limit: Stores information about spending limits (category, amount, currency, setting date).
 ExchangeRate: Stores information about exchange rates for conversion (date, KZT/USD rate, RUB/USD rate). 
 
+## API Documentation
 
+### Set Transaction Limit
+
+**Set Limit:**
+````
+  POST /limits/set-limit
+````
+**Request Body:** 
+ ```` 
+  {
+    "limitSum" : 1000.00,
+    "expenseCategory" : "product"
+  }
+ ````
+**Response Body:** 
+ ```` 
+  {
+    "id": 1,
+    "limitSum": 1000.0,
+    "limitDateTime": "2024-08-14 00:00:00 +0500",
+    "expenseCategory": "product",
+    "limitCurrencyShortname": "USD"
+}
+ ````
+### Transaction
+- Save Transaction
+````
+  POST /transactions/save
+````
+**Request Body:**
+ ```` 
+  {
+    "accountFrom": 123,
+    "accountTo" : 699669,
+    "currencyShortname" : "KZT",
+    "sum" : 1000010.07,
+    "expenseCategory" : "service"
+  }
+ ````
+**Response Body:**
+ ```` 
+  {
+    "id": 1,
+    "accountFrom": 123,
+    "accountTo": 699669,
+    "currencyShortname": "KZT",
+    "sum": 1000010.07, 
+    "expenseCategory": "service",
+    "dateTime": "2024-08-14 00:00:00 +0500",
+    "limitExceeded": true
+  }
+ ````
+- Get All Transactions 
+````
+  GET /transactions/all-transactions
+```` 
+**Response Body:**
+ ```` 
+  [
+    {
+        "accountFrom": "0000000123",
+        "accountTo": "0000699669",
+        "currencyShortname": "KZT",
+        "sum": 1000010.07,
+        "expenseCategory": "service",
+        "dateTime": "2024-08-14 00:00:00 +0500",
+        "limitSum": -1080.02,
+        "limitCurrencyShortname": "USD",
+        "limitDateTime": "2024-08-14 00:00:00 +0500"
+    }
+  ]
+ ````
+- Get Transactions Exceeding Limits
+````
+  GET /transactions/limit-excess-transaction
+```` 
+**Response Body:**
+ ```` 
+[
+    {
+        "accountFrom": "0000000123",
+        "accountTo": "0000699669",
+        "currencyShortname": "KZT",
+        "sum": 1000010.07,
+        "expenseCategory": "service",
+        "dateTime": "2024-08-14 00:00:00 +0500",
+        "limitSum": -1080.02,
+        "limitCurrencyShortname": "USD",
+        "limitDateTime": "2024-08-14 00:00:00 +0500"
+    }
+]
+ ````
+
+### Testing
+- To run test
+````
+    mvn test
+````

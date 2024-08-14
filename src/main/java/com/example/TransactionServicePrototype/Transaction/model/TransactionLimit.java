@@ -1,6 +1,7 @@
 package com.example.TransactionServicePrototype.Transaction.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
@@ -21,6 +22,7 @@ public class TransactionLimit {
     @NotNull
     private String expenseCategory;
     private String limitCurrencyShortname = "USD";
+    @JsonBackReference
     @OneToOne(mappedBy = "transactionLimit")
     private Transaction transaction;
 
