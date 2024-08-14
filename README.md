@@ -31,18 +31,18 @@ ExchangeRate: Stores information about exchange rates for conversion (date, KZT/
 ### Set Transaction Limit
 
 **Set Limit:**
-````
+````http
   POST /limits/set-limit
 ````
 **Request Body:** 
- ```` 
+ ````JSON
   {
     "limitSum" : 1000.00,
     "expenseCategory" : "product"
   }
  ````
 **Response Body:** 
- ```` 
+ ````JSON
   {
     "id": 1,
     "limitSum": 1000.0,
@@ -53,11 +53,11 @@ ExchangeRate: Stores information about exchange rates for conversion (date, KZT/
  ````
 ### Transaction
 - Save Transaction
-````
+````http
   POST /transactions/save
 ````
 **Request Body:**
- ```` 
+ ````JSON
   {
     "accountFrom": 123,
     "accountTo" : 699669,
@@ -67,7 +67,7 @@ ExchangeRate: Stores information about exchange rates for conversion (date, KZT/
   }
  ````
 **Response Body:**
- ```` 
+ ````JSON
   {
     "id": 1,
     "accountFrom": 123,
@@ -84,7 +84,7 @@ ExchangeRate: Stores information about exchange rates for conversion (date, KZT/
   GET /transactions/all-transactions
 ```` 
 **Response Body:**
- ```` 
+ ````JSON
   [
     {
         "accountFrom": "0000000123",
@@ -100,11 +100,11 @@ ExchangeRate: Stores information about exchange rates for conversion (date, KZT/
   ]
  ````
 - Get Transactions Exceeding Limits
-````
+````http
   GET /transactions/limit-excess-transaction
 ```` 
 **Response Body:**
- ```` 
+ ````JSON 
 [
     {
         "accountFrom": "0000000123",
@@ -122,6 +122,6 @@ ExchangeRate: Stores information about exchange rates for conversion (date, KZT/
 
 ### Testing
 - To run test
-````
+```` bash
     mvn test
 ````
